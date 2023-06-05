@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,13 +23,13 @@ namespace Clicky_Game
 
         List<Ellipse> removeThis = new List<Ellipse>(); 
       
-        int spawnRate = 60; // this is the default spawn rate of the circles
-        int currentRate; // current rate will help add an interval between spawning of the circles
-        int lastScore = 0; // this will hold the last played score for this game
-        int health = 350; // total health of the player in the begining of the game
-        int posX; // x position of the circles
-        int posY; // y position of the circles
-        int score = 0; // current score for the game
+        int spawnRate = 60; 
+        int currentRate; 
+        int lastScore = 0; 
+        int health = 350; 
+        int posX;
+        int posY;
+        int score = 0; 
 
         double growthRate = 0.6; 
 
@@ -51,11 +51,11 @@ namespace Clicky_Game
             InitializeComponent();
 
         
-            gameTimer.Tick += GameLoop; // set the game timer event called game loop
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20); // this time will tick every 20 milliseconds
-            gameTimer.Start(); // start the timer 
+            gameTimer.Tick += GameLoop;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Start(); 
 
-            currentRate = spawnRate; // set the current rate to the spawn rate number
+            currentRate = spawnRate; 
 
            
 
@@ -113,9 +113,9 @@ namespace Clicky_Game
             {
              
 
-                x.Height += growthRate; // grow the height of the circle
-                x.Width += growthRate; // grow the width of the circle
-                x.RenderTransformOrigin = new Point(0.5, 0.5); // grow from the centre of the circle by resetting the transform origin
+                x.Height += growthRate; 
+                x.Width += growthRate; 
+                x.RenderTransformOrigin = new Point(0.5, 0.5);
 
             
 
@@ -123,9 +123,9 @@ namespace Clicky_Game
                 {
                  
                     removeThis.Add(x);
-                    health -= 15; // reduce health by 15 
-                    playerPopSound.Open(PoppedSound); // load the popped sound uri inside of the player pop sound media player
-                    playerPopSound.Play(); // now play the pop sound
+                    health -= 15;
+                    playerPopSound.Open(PoppedSound); 
+                    playerPopSound.Play(); 
 
                 }
 
@@ -146,7 +146,7 @@ namespace Clicky_Game
             foreach (Ellipse i in removeThis)
             {
                 
-                MyCanvas.Children.Remove(i); // when it finds one it will remove it from the canvas
+                MyCanvas.Children.Remove(i); 
             }
 
          
@@ -194,7 +194,7 @@ namespace Clicky_Game
         {
         
 
-            gameTimer.Stop(); // first stop the game timer
+            gameTimer.Stop();
 
         
             MessageBox.Show("Game Over" + Environment.NewLine + "You Scored: " + score + Environment.NewLine + "Click Ok to play again!", "Moo Says: ");
